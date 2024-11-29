@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="MyProyectoXaf">
+  <BOModel>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="Categoria_ListView" Removed="True" />
+          <Item Id="Cliente_ListView" Removed="True" />
+          <Item Id="Factura_ListView" Removed="True" />
+          <Item Id="FacturaDetalle_ListView" Removed="True" />
+          <Item Id="GroupCliente" Caption="GroupCliente" ImageName="BO_Customer" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="Cliente_ListView" ViewId="Cliente_ListView" ObjectKey="" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="GroupFactura" Caption="GroupFactura" ImageName="BO_Report" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="Categoria_ListView" ViewId="Categoria_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="Factura_ListView" ViewId="Factura_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="FacturaDetalle_ListView" ViewId="FacturaDetalle_ListView" ObjectKey="" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="GroupPedidos" Caption="GroupPedidos" ImageName="BO_Quote" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="Pedidos_ListView" ViewId="Pedidos_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="Productos_ListView" ViewId="Productos_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="Proveedores_ListView" ViewId="Proveedores_ListView" ObjectKey="" IsNewNode="True" />
+            </Items>
+          </Item>
+          <Item Id="Pedidos_ListView" Removed="True" />
+          <Item Id="Productos_ListView" Removed="True" />
+          <Item Id="Proveedores_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="24.1.7.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="24.1.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="24.1.7.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="ApplicationUser_ListView" Caption="Users" />
+  </Views>
+</Application>
