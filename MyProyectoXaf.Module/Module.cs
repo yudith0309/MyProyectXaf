@@ -13,6 +13,7 @@ using DevExpress.ExpressApp.Model.DomainLogics;
 using DevExpress.ExpressApp.Model.NodeGenerators;
 using DevExpress.Xpo;
 using DevExpress.ExpressApp.Xpo;
+using MyProyectoXaf.Module.BusinessObjects;
 
 namespace MyProyectoXaf.Module;
 
@@ -62,5 +63,9 @@ public sealed class MyProyectoXafModule : ModuleBase {
     public override void CustomizeTypesInfo(ITypesInfo typesInfo) {
         base.CustomizeTypesInfo(typesInfo);
         CalculatedPersistentAliasHelper.CustomizeTypesInfo(typesInfo);
+        // Registrar las interfaces como Domain Components
+        typesInfo.RegisterEntity(typeof(IAddress));
+        typesInfo.RegisterEntity(typeof(ICustomer));
+        typesInfo.RegisterEntity(typeof(ISupplier));
     }
 }
