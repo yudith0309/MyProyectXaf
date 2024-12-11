@@ -6,11 +6,11 @@ using DevExpress.Xpo;
 namespace MyProyectoXaf.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    public class Proveedores : BaseObject
+    public class ProveedoresModule : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
         // https://docs.devexpress.com/CodeRushForRoslyn/118557
-        public Proveedores(Session session)
+        public ProveedoresModule(Session session)
             : base(session)
         {
         }
@@ -20,7 +20,6 @@ namespace MyProyectoXaf.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-        Pedidos pedidos;
         string telefono;
         string contacto;
         string nombre;
@@ -47,6 +46,24 @@ namespace MyProyectoXaf.Module.BusinessObjects
         {
             get => telefono;
             set => SetPropertyValue(nameof(Telefono), ref telefono, value);
-        }       
+        }
+
+        [Association("Proveedores-Productos")]
+        public XPCollection<ProductoModule> Productos
+        {
+            get
+            {
+                return GetCollection<ProductoModule>(nameof(Productos));
+            }
+        }
+
+        [Association("Proveedores-Pedidos")]
+        public XPCollection<PedidoModule> Pedidos
+        {
+            get
+            {
+                return GetCollection<PedidoModule>(nameof(Pedidos));
+            }
+        }
     }
 }

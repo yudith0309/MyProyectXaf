@@ -9,11 +9,11 @@ namespace MyProyectoXaf.Module.BusinessObjects;
 
 [RuleCombinationOfPropertiesIsUnique("Nombre Apellidos", DefaultContexts.Save, "Nombre, Apellidos", CustomMessageTemplate = "El nombre y los apellidos deben ser unicos")]
 
-public class Cliente : BaseObject
+public class ClienteModule : BaseObject
 { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
     // Use CodeRush to create XPO classes and properties with a few keystrokes.
     // https://docs.devexpress.com/CodeRushForRoslyn/118557
-    public Cliente(Session session)
+    public ClienteModule(Session session)
         : base(session)
     {
     }

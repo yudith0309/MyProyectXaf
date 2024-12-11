@@ -8,11 +8,11 @@ namespace MyProyectoXaf.Module.BusinessObjects;
 [DefaultClassOptions]
 [RuleCriteria("Precio Mayor que 0", DefaultContexts.Save, "Precio > 0 AND Stock >= 0", CustomMessageTemplate = "El precio debe ser mayor que 0.")]
 [RuleCriteria("Stock Mayor que 0", DefaultContexts.Save, "Stock >= 0", CustomMessageTemplate = "El stock debe ser mayor que 0.")]
-public class Productos : BaseObject
+public class ProductoModule : BaseObject
 { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
     // Use CodeRush to create XPO classes and properties with a few keystrokes.
     // https://docs.devexpress.com/CodeRushForRoslyn/118557
-    public Productos(Session session)
+    public ProductoModule(Session session)
         : base(session)
     {
     }
@@ -22,11 +22,12 @@ public class Productos : BaseObject
         // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
     }
 
+    ProveedoresModule proveedores;
     decimal precioUnitario;
     string stock;
     double precio;
     string nombre;
-    Categoria categoria;
+    CategoriaModule categoria;
 
     [Size(SizeAttribute.DefaultStringMappingFieldSize)]
     public string Nombre
@@ -49,7 +50,7 @@ public class Productos : BaseObject
     }
 
     [Association("Categoria-ProductosEspecials")]
-    public Categoria Categoria
+    public CategoriaModule Categoria
     {
         get => categoria;
         set => SetPropertyValue(nameof(Categoria), ref categoria, value);
@@ -64,5 +65,11 @@ public class Productos : BaseObject
         get => precioUnitario;
         set => SetPropertyValue(nameof(PrecioUnitario), ref precioUnitario, value);
     }
-
+    
+    [Association("Proveedores-Productos")]
+    public ProveedoresModule Proveedores
+    {
+        get => proveedores;
+        set => SetPropertyValue(nameof(Proveedores), ref proveedores, value);
+    }
 }

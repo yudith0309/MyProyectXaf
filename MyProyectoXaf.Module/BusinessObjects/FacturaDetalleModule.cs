@@ -6,11 +6,11 @@ using DevExpress.Xpo;
 namespace MyProyectoXaf.Module.BusinessObjects;
 
 [DefaultClassOptions]
-public class FacturaDetalle : BaseObject
+public class FacturaDetalleModule : BaseObject
 { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
     // Use CodeRush to create XPO classes and properties with a few keystrokes.
     // https://docs.devexpress.com/CodeRushForRoslyn/118557
-    public FacturaDetalle(Session session)
+    public FacturaDetalleModule(Session session)
         : base(session)
     {
     }
@@ -24,18 +24,18 @@ public class FacturaDetalle : BaseObject
     decimal total;
     decimal precioUnitario;
     int cantidad;
-    Productos producto;
-    Factura factura;
+    ProductoModule producto;
+    FacturaModule factura;
 
     [Association("Factura-FacturaDetalles")]
-    public Factura Factura
+    public FacturaModule Factura
     {
         get => factura;
         set => SetPropertyValue(nameof(Factura), ref factura, value);
     }
 
     //xpo      
-    public Productos Producto
+    public ProductoModule Producto
     {
         get => producto;
         set => SetPropertyValue(nameof(Producto), ref producto, value);

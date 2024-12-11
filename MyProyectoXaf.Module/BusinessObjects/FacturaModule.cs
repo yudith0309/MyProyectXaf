@@ -7,38 +7,46 @@ namespace MyProyectoXaf.Module.BusinessObjects;
 
 [DefaultClassOptions]
 
-public class Categoria : BaseObject
+public class FacturaModule : BaseObject
 { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
     // Use CodeRush to create XPO classes and properties with a few keystrokes.
     // https://docs.devexpress.com/CodeRushForRoslyn/118557
-    public Categoria(Session session)
+    public FacturaModule(Session session)
         : base(session)
     {
     }
     public override void AfterConstruction()
     {
         base.AfterConstruction();
+        this.fecha = DateTime.Now.Date;
         // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
     }
 
+    ClienteModule cliente;
+    DateTime fecha;
 
-    string nombre;
-    [RuleRequiredField("RuleRequiredField_Nombre", DefaultContexts.Save, "El Nombre es obligatorio.")]
-    [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-    public string Nombre
+    public DateTime Fecha
     {
-        get => nombre;
-        set => SetPropertyValue(nameof(Nombre), ref nombre, value);
+        get => fecha;
+        set => SetPropertyValue(nameof(Fecha), ref fecha, value);
     }
 
+    [RuleRequiredField("RuleRequiredField_Cliente", DefaultContexts.Save, "No se puede guardar una factura sin cliente.")]
+    public ClienteModule Cliente
+    {
+        get => cliente;
+        set => SetPropertyValue(nameof(Cliente), ref cliente, value);
+    }
     //xpcl
 
-    [Association("Categoria-ProductosEspecials")]
-    public XPCollection<Productos> ProductosEspecials
+    [Association("Factura-FacturaDetalles"), DevExpress.Xpo.Aggregated()]
+    public XPCollection<FacturaDetalleModule> FacturaDetalles
     {
         get
         {
-            return GetCollection<Productos>(nameof(ProductosEspecials));
+            return GetCollection<FacturaDetalleModule>(nameof(FacturaDetalles));
         }
     }
+
 }
+

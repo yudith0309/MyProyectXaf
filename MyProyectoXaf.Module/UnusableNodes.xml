@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Default">
+        <Items Id="Items">
+          <Item Id="Categoria_ListView" Removed="True" />
+          <Item Id="Cliente_ListView" Removed="True" />
+          <Item Id="Factura_ListView" Removed="True" />
+          <Item Id="FacturaDetalle_ListView" Removed="True" />
+          <Item Id="Pedidos_ListView" Removed="True" />
+          <Item Id="Productos_ListView" Removed="True" />
+          <Item Id="Proveedores_ListView" Removed="True" />
+          <Item Id="GroupPedidos">
+            <Items Id="Items">
+              <Item Id="Proveedores_ListView" ViewId="Proveedores_ListView" />
+              <Item Id="Productos_ListView" ViewId="Productos_ListView" />
+              <Item Id="Pedidos_ListView" ViewId="Pedidos_ListView" />
+            </Items>
+          </Item>
+          <Item Id="GroupFactura">
+            <Items Id="Items">
+              <Item Id="FacturaDetalle_ListView" ViewId="FacturaDetalle_ListView" />
+              <Item Id="Factura_ListView" ViewId="Factura_ListView" />
+              <Item Id="Categoria_ListView" ViewId="Categoria_ListView" />
+            </Items>
+          </Item>
+          <Item Id="GroupCliente">
+            <Items Id="Items">
+              <Item Id="Cliente_ListView" ViewId="Cliente_ListView" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>
