@@ -1,6 +1,6 @@
 ﻿namespace MyProyectoXaf.Module.Controllers
 {
-    partial class ParametrizedActionController
+    partial class InvoiceViewController
     {
         /// <summary>
         /// Required designer variable.

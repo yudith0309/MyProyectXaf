@@ -1,6 +1,6 @@
 ﻿namespace MyProyectoXaf.Module.Controllers
 {
-    partial class PopupWindowShowActionController
+    partial class GlobalWindowsController
     {
         /// <summary>
         /// Required designer variable.
