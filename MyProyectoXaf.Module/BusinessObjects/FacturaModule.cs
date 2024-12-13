@@ -22,7 +22,7 @@ public class FacturaModule : BaseObject
         // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
     }
 
-    ClienteModule cliente;
+    SupplierModule cliente;
     DateTime fecha;
 
     public DateTime Fecha
@@ -32,7 +32,7 @@ public class FacturaModule : BaseObject
     }
 
     [RuleRequiredField("RuleRequiredField_Cliente", DefaultContexts.Save, "No se puede guardar una factura sin cliente.")]
-    public ClienteModule Cliente
+    public SupplierModule Cliente
     {
         get => cliente;
         set => SetPropertyValue(nameof(Cliente), ref cliente, value);

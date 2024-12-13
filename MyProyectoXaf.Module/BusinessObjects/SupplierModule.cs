@@ -9,11 +9,11 @@ namespace MyProyectoXaf.Module.BusinessObjects;
 
 [RuleCombinationOfPropertiesIsUnique("Nombre Apellidos", DefaultContexts.Save, "Nombre, Apellidos", CustomMessageTemplate = "El nombre y los apellidos deben ser unicos")]
 
-public class ClienteModule : BaseObject
+public class SupplierModule : BaseObject,ISupplier
 { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
     // Use CodeRush to create XPO classes and properties with a few keystrokes.
     // https://docs.devexpress.com/CodeRushForRoslyn/118557
-    public ClienteModule(Session session)
+    public SupplierModule(Session session)
         : base(session)
     {
     }
@@ -23,26 +23,22 @@ public class ClienteModule : BaseObject
         // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
     }
 
-    string telefono;
+    string companyName;
+    string name;
     string email;
-    string apellidos;
-    string nombre;
 
     [RuleRequiredField("NombreRequired", DefaultContexts.Save, CustomMessageTemplate = "El nombre es obligatorio.")]
+
     [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-    public string Nombre
+    public string Name
     {
-        get => nombre;
-        set => SetPropertyValue(nameof(Nombre), ref nombre, value);
+        get => name;
+        set => SetPropertyValue(nameof(Name), ref name, value);
     }
 
+
     [RuleRequiredField("ApellidoRequired", DefaultContexts.Save, CustomMessageTemplate = "El apellido es obligatorio.")]
-    [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-    public string Apellidos
-    {
-        get => apellidos;
-        set => SetPropertyValue(nameof(Apellidos), ref apellidos, value);
-    }
+
 
     [Size(SizeAttribute.DefaultStringMappingFieldSize)]
     public string Email
@@ -50,12 +46,22 @@ public class ClienteModule : BaseObject
         get => email;
         set => SetPropertyValue(nameof(Email), ref email, value);
     }
+
     
     [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-    [RuleRange("TelefonoLongitud", DefaultContexts.Save, 10, 15, CustomMessageTemplate = "El teléfono debe tener entre 10 y 15 caracteres.")]
-    public string Telefono
+    public string CompanyName
     {
-        get => telefono;
-        set => SetPropertyValue(nameof(Telefono), ref telefono, value);
+        get => companyName;
+        set => SetPropertyValue(nameof(CompanyName), ref companyName, value);
     }
+
+    [Association("SupplierModule-AddressModules")]
+    public XPCollection<AddressModule> AddressModules
+    {
+        get
+        {
+            return GetCollection<AddressModule>(nameof(AddressModules));
+        }
+    }
+
 }

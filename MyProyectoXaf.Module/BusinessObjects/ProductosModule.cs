@@ -22,7 +22,7 @@ public class ProductoModule : BaseObject
         // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
     }
 
-    ProveedoresModule proveedores;
+    CustomerModule proveedores;
     decimal precioUnitario;
     string stock;
     double precio;
@@ -64,12 +64,6 @@ public class ProductoModule : BaseObject
     {
         get => precioUnitario;
         set => SetPropertyValue(nameof(PrecioUnitario), ref precioUnitario, value);
-    }
+    }    
     
-    [Association("Proveedores-Productos")]
-    public ProveedoresModule Proveedores
-    {
-        get => proveedores;
-        set => SetPropertyValue(nameof(Proveedores), ref proveedores, value);
-    }
 }

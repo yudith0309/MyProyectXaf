@@ -64,8 +64,8 @@ public sealed class MyProyectoXafModule : ModuleBase {
         base.CustomizeTypesInfo(typesInfo);
         CalculatedPersistentAliasHelper.CustomizeTypesInfo(typesInfo);
         // Registrar las interfaces como Domain Components
-        typesInfo.RegisterEntity(typeof(IAddress));
-        typesInfo.RegisterEntity(typeof(ICustomer));
+        typesInfo.RegisterEntity(typeof(IAddressModule));
+        typesInfo.RegisterEntity(typeof(ICustomerModule));
         typesInfo.RegisterEntity(typeof(ISupplier));
     }
 }

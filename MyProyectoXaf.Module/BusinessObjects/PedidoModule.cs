@@ -20,7 +20,7 @@ namespace MyProyectoXaf.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-        ProveedoresModule propertyName;
+        CustomerModule propertyName;
         DateTime fechaPedido;
         int cantidadSolicitada;
 
@@ -35,14 +35,6 @@ namespace MyProyectoXaf.Module.BusinessObjects
         {
             get => fechaPedido;
             set => SetPropertyValue(nameof(FechaPedido), ref fechaPedido, value);
-        }
-
-
-        [Association("Proveedores-Pedidos")]
-        public ProveedoresModule PropertyName
-        {
-            get => propertyName;
-            set => SetPropertyValue(nameof(PropertyName), ref propertyName, value);
-        }
+        }        
     }
 }

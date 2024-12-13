@@ -31,7 +31,7 @@ namespace MyProyectoXaf.Module.Controllers
         }
         private void MostrarListado_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
         {
-            var os = this.Application.CreateObjectSpace(typeof(ClienteModule));
+            var os = this.Application.CreateObjectSpace(typeof(SupplierModule));
 
             // Set the e.View parameter to a newly created view (https://docs.devexpress.com/eXpressAppFramework/112723/).
         }

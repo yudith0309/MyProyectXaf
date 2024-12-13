@@ -4,8 +4,10 @@ namespace MyProyectoXaf.Module.BusinessObjects;
 
 [DomainComponent]
 
-public interface ISupplier
+public interface ICustomerModule
 {
-    string CompanyName { get; set; }
+    string Name { get; set; }
+    string Contact {  get; set; }
+    string Phone { get; set; }
     //IAddressModule Address { get; set; }
 }
