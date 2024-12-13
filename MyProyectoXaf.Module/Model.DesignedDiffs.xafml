@@ -7,14 +7,16 @@
     <Items>
       <Item Id="Default">
         <Items>
-          <Item Id="CategoriaModule_ListView" Removed="True" />
-          <Item Id="ClienteModule_ListView" Removed="True" />
-          <Item Id="FacturaDetalleModule_ListView" Removed="True" />
-          <Item Id="FacturaModule_ListView" Removed="True" />
+          <Item Id="AddressModule_ListView" Removed="True" />
+          <Item Id="CategoryModule_ListView" Removed="True" />
+          <Item Id="CustomerModule_ListView" Removed="True" />
           <Item Id="GroupCliente" Caption="GroupCliente" ImageName="BO_Customer" IsNewNode="True">
             <Items IsNewNode="True">
-              <Item Id="Cliente_ListView" ViewId="Cliente_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="AddressModule_ListView" ViewId="AddressModule_ListView" ObjectKey="" ImageName="BO_Organization" IsNewNode="True" />
+              <Item Id="Cliente_ListView" ViewId="Cliente_ListView" ObjectKey="" ImageName="BO_Employee" IsNewNode="True" />
               <Item Id="ClienteModule_ListView" ViewId="ClienteModule_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="CustomerModule_ListView" ViewId="CustomerModule_ListView" ObjectKey="" ImageName="BO_Customer" IsNewNode="True" />
+              <Item Id="SupplierModule_ListView" ViewId="SupplierModule_ListView" ObjectKey="" ImageName="BO_Employee" IsNewNode="True" />
             </Items>
           </Item>
           <Item Id="GroupFactura" Caption="GroupFactura" ImageName="BO_Report" IsNewNode="True">
@@ -25,21 +27,25 @@
               <Item Id="FacturaDetalle_ListView" ViewId="FacturaDetalle_ListView" ObjectKey="" IsNewNode="True" />
               <Item Id="FacturaDetalleModule_ListView" ViewId="FacturaDetalleModule_ListView" ObjectKey="" IsNewNode="True" />
               <Item Id="FacturaModule_ListView" ViewId="FacturaModule_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="InvoiceDetailModule_ListView" ViewId="InvoiceDetailModule_ListView" ObjectKey="" ImageName="BO_List" IsNewNode="True" />
+              <Item Id="InvoiceModule_ListView" ViewId="InvoiceModule_ListView" ObjectKey="" ImageName="BO_Contract" IsNewNode="True" />
             </Items>
           </Item>
           <Item Id="GroupPedidos" Caption="GroupPedidos" ImageName="BO_Quote" IsNewNode="True">
             <Items IsNewNode="True">
+              <Item Id="CategoryModule_ListView" ViewId="CategoryModule_ListView" ObjectKey="" ImageName="BO_Product_Group" IsNewNode="True" />
               <Item Id="PedidoModule_ListView" ViewId="PedidoModule_ListView" ObjectKey="" IsNewNode="True" />
               <Item Id="Pedidos_ListView" ViewId="Pedidos_ListView" ObjectKey="" IsNewNode="True" />
-              <Item Id="ProductoModule_ListView" ViewId="ProductoModule_ListView" ObjectKey="" IsNewNode="True" />
+              <Item Id="ProductoModule_ListView" ViewId="ProductoModule_ListView" ObjectKey="" ImageName="BO_Quote" IsNewNode="True" />
               <Item Id="Productos_ListView" ViewId="Productos_ListView" ObjectKey="" IsNewNode="True" />
               <Item Id="Proveedores_ListView" ViewId="Proveedores_ListView" ObjectKey="" IsNewNode="True" />
               <Item Id="ProveedoresModule_ListView" ViewId="ProveedoresModule_ListView" ObjectKey="" IsNewNode="True" />
             </Items>
           </Item>
-          <Item Id="PedidoModule_ListView" Removed="True" />
+          <Item Id="InvoiceDetailModule_ListView" Removed="True" />
+          <Item Id="InvoiceModule_ListView" Removed="True" />
           <Item Id="ProductoModule_ListView" Removed="True" />
-          <Item Id="ProveedoresModule_ListView" Removed="True" />
+          <Item Id="SupplierModule_ListView" Removed="True" />
         </Items>
       </Item>
     </Items>

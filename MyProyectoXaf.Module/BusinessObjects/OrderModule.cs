@@ -6,11 +6,11 @@ using DevExpress.Xpo;
 namespace MyProyectoXaf.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    public class PedidoModule : BaseObject
+    public class OrderModule : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
         // https://docs.devexpress.com/CodeRushForRoslyn/118557
-        public PedidoModule(Session session)
+        public OrderModule(Session session)
             : base(session)
         {
         }
@@ -20,8 +20,7 @@ namespace MyProyectoXaf.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-        CustomerModule propertyName;
-        DateTime fechaPedido;
+        DateTime orderDate;
         int cantidadSolicitada;
 
         [RuleValueComparison(DefaultContexts.Save, ValueComparisonType.GreaterThan, 0,
@@ -31,10 +30,10 @@ namespace MyProyectoXaf.Module.BusinessObjects
             get => cantidadSolicitada;
             set => SetPropertyValue(nameof(CantidadSolicitada), ref cantidadSolicitada, value);
         }
-        public DateTime FechaPedido
+        public DateTime OrderDate
         {
-            get => fechaPedido;
-            set => SetPropertyValue(nameof(FechaPedido), ref fechaPedido, value);
-        }        
+            get => orderDate;
+            set => SetPropertyValue(nameof(OrderDate), ref orderDate, value);
+        }
     }
 }

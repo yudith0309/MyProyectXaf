@@ -22,12 +22,10 @@ public class ProductoModule : BaseObject
         // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
     }
 
-    CustomerModule proveedores;
     decimal precioUnitario;
     string stock;
     double precio;
     string nombre;
-    CategoriaModule categoria;
 
     [Size(SizeAttribute.DefaultStringMappingFieldSize)]
     public string Nombre
@@ -49,12 +47,6 @@ public class ProductoModule : BaseObject
         set => SetPropertyValue(nameof(Stock), ref stock, value);
     }
 
-    [Association("Categoria-ProductosEspecials")]
-    public CategoriaModule Categoria
-    {
-        get => categoria;
-        set => SetPropertyValue(nameof(Categoria), ref categoria, value);
-    }
     public decimal Fecha
     {
         get => precioUnitario;
@@ -64,6 +56,6 @@ public class ProductoModule : BaseObject
     {
         get => precioUnitario;
         set => SetPropertyValue(nameof(PrecioUnitario), ref precioUnitario, value);
-    }    
-    
+    }
+
 }

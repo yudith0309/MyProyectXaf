@@ -7,7 +7,7 @@ namespace MyProyectoXaf.Module.BusinessObjects;
 
 [DefaultClassOptions]
 
-[RuleCombinationOfPropertiesIsUnique("Nombre Apellidos", DefaultContexts.Save, "Nombre, Apellidos", CustomMessageTemplate = "El nombre y los apellidos deben ser unicos")]
+[RuleCombinationOfPropertiesIsUnique("Nombre Apellidos", DefaultContexts.Save, "Name, Email", CustomMessageTemplate = "El nombre y los apellidos deben ser unicos")]
 
 public class SupplierModule : BaseObject,ISupplier
 { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).

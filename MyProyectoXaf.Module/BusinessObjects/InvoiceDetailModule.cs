@@ -6,11 +6,11 @@ using DevExpress.Xpo;
 namespace MyProyectoXaf.Module.BusinessObjects;
 
 [DefaultClassOptions]
-public class FacturaDetalleModule : BaseObject
+public class InvoiceDetailModule : BaseObject
 { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
     // Use CodeRush to create XPO classes and properties with a few keystrokes.
     // https://docs.devexpress.com/CodeRushForRoslyn/118557
-    public FacturaDetalleModule(Session session)
+    public InvoiceDetailModule(Session session)
         : base(session)
     {
     }
@@ -22,38 +22,38 @@ public class FacturaDetalleModule : BaseObject
     //xpa
     decimal subTotal;
     decimal total;
-    decimal precioUnitario;
-    int cantidad;
-    ProductoModule producto;
-    FacturaModule factura;
+    decimal unitPrice;
+    int amount;
+    ProductoModule product;
+    InvoiceModule invoice;
 
     [Association("Factura-FacturaDetalles")]
-    public FacturaModule Factura
+    public InvoiceModule Invoice
     {
-        get => factura;
-        set => SetPropertyValue(nameof(Factura), ref factura, value);
+        get => invoice;
+        set => SetPropertyValue(nameof(Invoice), ref invoice, value);
     }
 
     //xpo      
-    public ProductoModule Producto
+    public ProductoModule Product
     {
-        get => producto;
-        set => SetPropertyValue(nameof(Producto), ref producto, value);
+        get => product;
+        set => SetPropertyValue(nameof(Product), ref product, value);
     }
     //xpi
     
     [RuleRange("RuleRange_Cantidad", DefaultContexts.Save, 0.01, double.MaxValue, "La cantidad debe ser mayor a 0.")]
-    public int Cantidad
+    public int Amount
     {
-        get => cantidad;
-        set => SetPropertyValue(nameof(Cantidad), ref cantidad, value);
+        get => amount;
+        set => SetPropertyValue(nameof(Amount), ref amount, value);
     }
 
     //xpde         
-    public decimal PrecioUnitario
+    public decimal UnitPrice
     {
-        get => precioUnitario;
-        set => SetPropertyValue(nameof(PrecioUnitario), ref precioUnitario, value);
+        get => unitPrice;
+        set => SetPropertyValue(nameof(UnitPrice), ref unitPrice, value);
     }
     
     public decimal SubTotal
@@ -63,21 +63,21 @@ public class FacturaDetalleModule : BaseObject
     }
     protected override void OnChanged(string propertyName, object oldValue, object newValue)
     {
-        if (propertyName == nameof(Factura))
+        if (propertyName == nameof(Invoice))
         {
-            if (this.producto == null)
+            if (this.product == null)
             {
-                this.precioUnitario = 0;
+                this.unitPrice = 0;
             }
             else
             {
-                this.precioUnitario = Producto.PrecioUnitario;
+                this.unitPrice = Product.PrecioUnitario;
             }
         }
-        if (propertyName == nameof(Cantidad) || propertyName == nameof(PrecioUnitario))
+        if (propertyName == nameof(Amount) || propertyName == nameof(UnitPrice))
         {
-            this.Total = Cantidad * PrecioUnitario;
-            this.SubTotal = Cantidad * PrecioUnitario;
+            this.Total = Amount * UnitPrice;
+            this.SubTotal = Amount * UnitPrice;
         }
         base.OnChanged(propertyName, oldValue, newValue);
     }

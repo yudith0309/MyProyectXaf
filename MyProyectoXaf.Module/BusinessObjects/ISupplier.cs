@@ -7,5 +7,7 @@ namespace MyProyectoXaf.Module.BusinessObjects;
 public interface ISupplier
 {
     string CompanyName { get; set; }
+    string Name { get; set; }
+    string Email { get; set; }
     //IAddressModule Address { get; set; }
 }

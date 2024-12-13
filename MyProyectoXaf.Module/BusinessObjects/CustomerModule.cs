@@ -23,7 +23,6 @@ public class CustomerModule : BaseObject, ICustomerModule
     string phone;
     string contact;
     string name;
-    AddressModule address;
 
     [RuleRequiredField(DefaultContexts.Save, CustomMessageTemplate = "El nombre es obligatorio.")]
     [Size(SizeAttribute.DefaultStringMappingFieldSize)]
